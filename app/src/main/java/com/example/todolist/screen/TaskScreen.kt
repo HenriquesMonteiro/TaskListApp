@@ -37,14 +37,15 @@ fun AddTaskScreen(
 
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
+        sheetShape =  MaterialTheme.shapes.large,
         sheetPeekHeight = 0.dp,
         sheetContent = {
-
+        Surface{
             Column(
                 Modifier
                     .fillMaxWidth()
-                    .padding(100.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                    .padding(25.dp),
+                verticalArrangement = Arrangement.SpaceAround
             ) {
                 TextField(value = state.title,
                     onValueChange = {
@@ -52,14 +53,22 @@ fun AddTaskScreen(
                     },
                     placeholder = {
                         Text(text = "Add Title")
-                    }
+                    },
+                    colors=TextFieldDefaults.textFieldColors(
+                        backgroundColor = MaterialTheme.colors.surface
+                    )
                 )
-                TextField(value = state.task, onValueChange = {
-                    onEvent(TaskEvent.SetTask(it))
-                },
+                TextField(
+                    value = state.task,
+                    onValueChange = {
+                        onEvent(TaskEvent.SetTask(it))
+                    },
                     placeholder = {
                         Text(text = "Add Task")
-                    }
+                    },
+                    colors=TextFieldDefaults.textFieldColors(
+                        backgroundColor = MaterialTheme.colors.surface
+                    )
                 )
                 Divider(Modifier.height(1.dp))
                 Button(
@@ -70,6 +79,8 @@ fun AddTaskScreen(
                     Text("Save")
                 }
             }
+        }
+
         }) {
         Scaffold(
             floatingActionButton={

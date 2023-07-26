@@ -8,6 +8,5 @@ data class TaskState(
     val title: String= "",
     val task: String= "",
     val isAddingList: Boolean=false,
-    val sortType: SortType =SortType.Title
-
+    val sortType: SortType =SortType.Title,
 )

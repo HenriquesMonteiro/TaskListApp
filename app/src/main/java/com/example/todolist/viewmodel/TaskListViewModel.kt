@@ -54,6 +54,7 @@ class TaskListViewModel(
                     dao.deleteList(event.task)
                 }
             }
+
             TaskEvent.HideDialog -> {
                 _state.update {
                     it.copy(
@@ -61,6 +62,7 @@ class TaskListViewModel(
                     )
                 }
             }
+
             TaskEvent.ShowDialog -> {
                 _state.update {
                     it.copy(
@@ -69,9 +71,11 @@ class TaskListViewModel(
 
                 }
             }
+
             is TaskEvent.SortTask -> {
                 _sortType.value = event.sortType
             }
+
             TaskEvent.SaveTask -> {
                 val task = state.value.task
                 val title = state.value.title
@@ -93,6 +97,7 @@ class TaskListViewModel(
                     )
                 }
             }
+
             is TaskEvent.SetTask -> {
                 _state.update {
                     it.copy(
@@ -100,6 +105,7 @@ class TaskListViewModel(
                     )
                 }
             }
+
             is TaskEvent.SetTitle -> {
                 _state.update {
                     it.copy(

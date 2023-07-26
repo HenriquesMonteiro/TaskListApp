@@ -8,7 +8,7 @@ interface TaskDao {
 
 
     @Delete
-    fun deleteList(task: DataList)
+    suspend fun deleteList(task: DataList)
     @Upsert
     suspend fun upsertList( task: DataList)
 
